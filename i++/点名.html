@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .two {
+            display: none;
+            position: absolute;
+            top: 70px;
+            left: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>点名开始</h1>
+    <p class="one">开始</p>
+    <p class="two">结束</p>
+</body>
+<script>
+    var h1_ = document.getElementsByTagName('h1')[0];
+    var start_ = document.getElementsByTagName('p')[0];
+    var stop_ = document.getElementsByTagName('p')[1];
+    var name_ = ['孙悟空', '猪八戒', '唐僧', '沙僧', '白龙马', '李佳佳']
+    var time;
+    start_.onclick = function() {
+        // 开始隐藏
+        start_.style.display = 'none'
+            // 结束浮现
+        stop_.style.display = 'block'
+            // 滚动
+        time = setInterval(function() {
+            h1_.innerHTML = name_[parseInt(Math.random() * name_.length)];
+        }, 50)
+
+    }
+    stop_.onclick = function() {
+        // 开始浮现
+        start_.style.display = 'block'
+            // 结束隐藏
+        stop_.style.display = 'none'
+        clearInterval(time)
+    }
+</script>
+
+</html>

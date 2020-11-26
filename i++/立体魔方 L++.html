@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    
+    .box {
+        width: 300px;
+        height: 300px;
+        margin: 300px auto;
+        /* 添加视距 */
+        perspective: 1000px;
+    }
+    
+    .wu {
+        position: relative;
+        width: 300px;
+        height: 300px;
+        /* 舞台添加3D效果 */
+        transform-style: preserve-3d;
+        animation: move 12s linear infinite;
+    }
+    
+    img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 300px;
+        height: 300px;
+    }
+    /* 第一张  前面,向前移动自身一半的距离*/
+    
+    img:nth-of-type(1) {
+        transform: translateZ(150px);
+    }
+    /* 第二张  背面,向后移动自身一半的距离，并Y轴旋转180°*/
+    
+    img:nth-of-type(2) {
+        transform: rotateY(180deg) translateZ(150px);
+    }
+    /* 第三张  左面，向左旋转90°*/
+    
+    img:nth-of-type(3) {
+        transform: rotateY(90deg)translateZ(150px);
+    }
+    /* 第四张  右面，向右旋转90°*/
+    
+    img:nth-of-type(4) {
+        transform: rotateY(-90deg)translateZ(150px);
+    }
+    /* 第五张  上面，向上旋转90°*/
+    
+    img:nth-of-type(5) {
+        transform: rotateX(90deg) translateZ(150px);
+    }
+    /* 第六张 下面，向下旋转90°*/
+    
+    img:nth-of-type(6) {
+        transform: rotateX(-90deg) translateZ(150px);
+    }
+    
+    @keyframes move {
+        0% {
+            transform: rotate3d(1, 1, 0, 0deg);
+        }
+        100% {
+            transform: rotate3d(1, 1, 1, 720deg);
+        }
+    }
+</style>
+
+<body>
+    <div class="box">
+        <div class="wu">
+            <img src="../i++/img/44a5f207478b7fb0e7e5fb4846db12b.jpg" alt="">
+            <img src="../i++/img/i++.jpg" alt="">
+            <img src="../i++/img/微信图片_20201110233427.jpg" alt="">
+            <img src="../i++/img/微信图片_20201110233441.jpg" alt="">
+            <img src="../i++/img/微信图片_20201110233452.jpg" alt="">
+            <img src="../i++/img/微信图片_20201110233507.jpg" alt="">
+        </div>
+    </div>
+</body>
+
+</html>
